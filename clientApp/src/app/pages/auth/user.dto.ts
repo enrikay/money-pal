@@ -1,12 +1,10 @@
 
 export interface UserSignInDto {
-    readonly username: string;
+    readonly email: string;
     readonly password: string;
 }
 
-export interface UserSignUpDto {
+export interface UserSignUpDto extends UserSignInDto {
     readonly firstName: string;
     readonly surName: string;
-    readonly username: string;
-    readonly password: string;
 }

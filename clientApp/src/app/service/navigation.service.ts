@@ -24,7 +24,7 @@ export class NavigationService {
   }
 
   goToDashboard() {
-    this.router.navigate(['/dashboard']);
+    this.router.navigate(['/wallet']);
   }
 
 

@@ -30,7 +30,7 @@ export class SignupComponent implements OnInit {
     const registrationData: UserSignUpDto = {
       firstName: form.value.inputFirstName,
       surName: form.value.inputSurName,
-      username: form.value.inputEmail,
+      email: form.value.inputEmail,
       password: form.value.inputPassword1
     }
 

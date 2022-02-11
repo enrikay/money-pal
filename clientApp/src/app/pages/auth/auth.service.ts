@@ -9,6 +9,7 @@ import { StorageService } from '../../service/storage.service';
 import { NavigationService } from '../../service/navigation.service';
 import { NotificationService } from '../../components/notification/notification.service';
 import { UserSignUpDto } from './user.dto';
+import { IUser } from './user.interface';
 // import { UserSignUpDto, UserSignInDto } from '../user/user.dto';
 // import { IUser, UserTypeEnum } from '../user/user.interface';
 
@@ -16,7 +17,7 @@ import { UserSignUpDto } from './user.dto';
   providedIn: 'root'
 })
 export class AuthService {
-  private API_URL = environment.API_URL;
+  private API_URL = environment.API_URL.user;
 
   private userIsAuthenticated = false;
   private token?: string;
@@ -60,12 +61,8 @@ export class AuthService {
   * User signup
   */
   registerUser(userSignUpDto: UserSignUpDto) {
-    this.http.post<{ message: string, isSuccessful: boolean }>(`${this.API_URL.user}api/auth/register`, userSignUpDto)
+    this.http.post<{ message: string }>(`${this.API_URL}signup`, userSignUpDto)
       .subscribe(response => {
-
-        if (!response.isSuccessful) {
-          return this.notificationsService.notify(response.message);
-        }
 
         this.notificationsService.notify(response.message);
 
@@ -86,19 +83,19 @@ export class AuthService {
       return this.notificationsService.notify('A user already Authenticated', 'info');
     }
 
-    this.http.post<{ message: string, isSuccessful: boolean, data: any }>(`${this.API_URL.user}api/auth/login`, userSignInDto)
+    this.http.post<{ message: string, data: { token: string, user: IUser } }>(`${this.API_URL}login`, userSignInDto)
       .subscribe(response => {
 
         const token = response.data.token;
         this.token = token;
-        this.userId = response.data.id;
-        const user = response.data;
+        this.userId = response.data.user._id;
+        const user = response.data.user;
 
-        if (!response.isSuccessful) {
-          return this.notificationsService.notify(response.message);
+        if (!token) {
+          return this.notificationsService.notify(`Login not successful!!!`);
         }
 
-        this.notificationsService.notify(response.message);
+        // this.notificationsService.notify(response.message);
         this.userIsAuthenticated = true;
         this.saveAuthenticationData(token, user);
         this.authenticationStatusListener.next(true);
@@ -111,15 +108,12 @@ export class AuthService {
 
 
   verifyUser(token: string) {
-    this.http.get<{ message: string, isSuccessful: boolean, data: any }>(`${this.API_URL.user}api/auth/confirm/${token}`)
+    this.http.get<{ message: string }>(`${this.API_URL}confirm/${token}`)
       .subscribe(response => {
 
-        if (!response.isSuccessful) {
-          return this.notificationsService.notify(response.message);
-        }
-
         this.notificationsService.notify(response.message);
-        this.storageService.optimiseUserOBJ(response.data);
+
+        // this.navigationService.goToLogin()
       }, error => {
         this.authenticationStatusListener.next(false);
       });

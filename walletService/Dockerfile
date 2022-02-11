@@ -1,5 +1,5 @@
 FROM node:14
-LABEL author="bolajahmad"
+LABEL author="Okonkwo Emmanuel"
 
 ENV NODE_ENV=production
 ENV PORT=3001

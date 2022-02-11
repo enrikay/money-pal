@@ -21,9 +21,9 @@ const routes: Routes = [
       .then(m => m.VerifyAccountModule)
   },
   {
-    path: 'dashboard',
-    loadChildren: () => import('./pages/dashboard/dashboard.module')
-      .then(m => m.DashboardModule)
+    path: 'wallet',
+    loadChildren: () => import('./pages/wallet/wallet.module')
+      .then(m => m.WalletModule)
   },
 ];
 

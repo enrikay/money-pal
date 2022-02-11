@@ -1,42 +1,42 @@
 {
-  "name": "billingservice",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "user-service",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js",
-    "dev": "nodemon --watch \"./**/*.ts\" --exec \"ts-node\" server.ts"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@types/amqplib": "^0.8.2",
-    "@types/cors": "^2.8.12",
-    "@types/express": "^4.17.13",
-    "@types/jsonwebtoken": "^8.5.5",
-    "@types/lodash.once": "^4.1.6",
-    "@types/node": "^16.9.4",
-    "@types/uuid": "^8.3.1",
-    "chai": "^4.3.4",
-    "mocha": "^9.1.1",
-    "nodemon": "^2.0.12",
-    "supertest": "^6.1.6",
-    "ts-node": "^10.2.1",
-    "tslib": "^2.3.1",
-    "typescript": "^4.4.3"
+    "clear": "rimraf ./dist",
+    "ts:watch": "tsc -w",
+    "ts:build": "tsc",
+    "serve": "nodemon dist/server.js",
+    "watch": "concurrently \"npm run ts:watch\" \"npm run serve\"",
+    "build": "npm run ts:build",
+    "prod:serve": "node dist/server.js",
+    "start": "npm run build && npm run prod:serve",
+    "start:dev": "npm run watch",
+    "tslint": "tslint -c tslint.json -p tsconfig.json"
   },
   "dependencies": {
     "amqplib": "^0.8.0",
-    "body-parser": "^1.19.0",
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "joi": "^17.4.2",
     "jsonwebtoken": "^8.5.1",
-    "lodash.once": "^4.1.1",
-    "mongoose": "^6.0.6",
-    "uuid": "^8.3.2",
-    "yup": "^0.32.9"
+    "mongoose": "^5.13.13",
+    "rimraf": "^3.0.2"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.8.2",
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.6",
+    "@types/express": "^4.17.2",
+    "@types/jest": "^27.0.3",
+    "@types/jsonwebtoken": "^8.3.9",
+    "@types/lodash.once": "^4.1.6",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^12.20.37",
+    "concurrently": "^6.4.0",
+    "jest": "^27.3.1",
+    "nodemon": "^2.0.15",
+    "tslint": "^5.5.0",
+    "typescript": "^4.5.2"
   }
 }

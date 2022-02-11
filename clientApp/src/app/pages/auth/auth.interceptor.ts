@@ -23,31 +23,11 @@ export class AuthInterceptor implements HttpInterceptor {
 
     ) { }
 
-    intercept(req: HttpRequest<any>, next: HttpHandler) {
-        let branchId = '';
-
-        if (!window.navigator.onLine) {
-            const error = {
-                status: 500,
-                error: {
-                    message: 'No internet connection!'
-                },
-            };
-            return throwError(new HttpErrorResponse(error));
-        }
-
-        if (this.authService.getIsAuthenticated()) {
-            const branch = this.storageService.getSelectedBranchOBJ();
-            if (branch) {
-                branchId = branch._id;
-            }
-        }
+    intercept(req: HttpRequest<any>, next: HttpHandler) {      
         const token = this.authService.getToken();
         const clonedToken = req.clone({
             setHeaders: {
                 Authorization: `Bearer ${token}`,
-                branch_id: branchId,
-                sec_fetch_mood: '*_*'
             }
             // Below is authorization string from authservice
         });

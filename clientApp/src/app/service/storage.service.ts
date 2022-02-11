@@ -37,8 +37,7 @@ export class StorageService {
   getAuthData() {
     // return new Promise<{ token: string, user: IUser, authenticatedUserType: UserTypeEnum }>((resolve, reject) => {
     const token = localStorage.getItem('token');
-    const user: any = localStorage.getItem('loggedUser');
-    const userType = localStorage.getItem('loggedUserType');
+    const user: any = localStorage.getItem('user');
 
     const parsedUser: any = JSON.parse(user);
 
@@ -84,9 +83,7 @@ export class StorageService {
  */
   removeAuthData() {
     localStorage.removeItem('token');
-    localStorage.removeItem('branch');
-    localStorage.removeItem('loggedUser');
-    localStorage.removeItem('loggedUserType');
+    localStorage.removeItem('user');
   }
 
 }
