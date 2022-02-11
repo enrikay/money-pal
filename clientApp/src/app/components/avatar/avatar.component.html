@@ -1,0 +1,9 @@
+<ng-template [ngIf]="type === 'text'">
+    <div [style.height]="heightWidth" [style.width]="heightWidth" [style.border-radius]="border_radius"
+        [style.font-size]="fontSize" class="icon">{{ initial }}</div>
+</ng-template>
+
+<ng-template [ngIf]="type === 'svg'">
+    <div [style.height]="heightWidth" [style.width]="heightWidth" [style.border-radius]="border_radius"
+        [style.font-size]="fontSize" class="icon"><i class="bi bi-{{initial}}"></i></div>
+</ng-template>

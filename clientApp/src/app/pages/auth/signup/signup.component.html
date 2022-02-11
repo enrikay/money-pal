@@ -1,0 +1,122 @@
+<section class="wrapper">
+    <div class="py-3 text-center">
+        <img class="logoo" src="../../../../assets/imgs/logo.png" alt="" srcset="">
+    </div>
+
+    <div class="content">
+        <header>
+            <h3 class="text-handy mb-0">Register an account</h3>
+        </header>
+        <form (submit)="onRegisterUser(registerForm)" #registerForm="ngForm" class="sign-up-form">
+            <section class="mt-5">
+                <div class="form-floating">
+                    <input
+                        [ngClass]="{'is-invalid animate__animated animate__headShake': firstName.touched && firstName.invalid}"
+                        class="form-control" id="floatingInput" type="text" name="inputFirstName" ngModel
+                        placeholder="Firstname" #firstName="ngModel" minlength="3" autocomplete="off" required />
+                    <label for="floatingInput">Firstname</label>
+                </div>
+                <div class="mb-1 text-center" *ngIf="firstName.touched && firstName.invalid">
+                    <small *ngIf="firstName.errors?.required" class="text-danger">This field is required.</small>
+                    <small *ngIf="firstName.touched && firstName.errors?.minlength" class="text-danger"> Minimum
+                        3
+                        characters
+                    </small>
+                </div>
+
+
+                <div class="form-floating mt-4">
+                    <input
+                        [ngClass]="{'is-invalid animate__animated animate__headShake': surName.touched && surName.invalid}"
+                        class="form-control" id="floatingInput" type="text" name="inputSurName" ngModel
+                        placeholder="Firstname" #surName="ngModel" minlength="3" autocomplete="off" required />
+                    <label for="floatingInput">Surname</label>
+                </div>
+                <div class="mb-1 text-center" *ngIf="surName.touched && surName.invalid">
+                    <small *ngIf="surName.errors?.required" class="text-danger"> This field is required.</small>
+                    <small *ngIf="surName.touched && surName.errors?.minlength" class="text-danger"> Minimum
+                        3
+                        characters
+                    </small>
+                </div>
+
+
+                <div class="form-floating mt-4">
+                    <input
+                        [ngClass]="{'is-invalid animate__animated animate__headShake': userName.touched && userName.invalid}"
+                        class="form-control" id="floatingInput" type="text" name="inputEmail" ngModel
+                        placeholder="Username" #userName="ngModel" minlength="3" autocomplete="off" required />
+                    <label for="floatingInput">Email</label>
+                </div>
+                <div class="mb-1 text-center" *ngIf="userName.touched && userName.invalid">
+                    <small *ngIf="userName.errors?.required" class="text-danger"> This field is required.</small>
+                    <small *ngIf="userName.touched && userName.errors?.minlength" class="text-danger"> Minimum
+                        3
+                        characters
+                    </small>
+                </div>
+
+
+                <div class="form-floating mt-4">
+                    <input
+                        [ngClass]="{'is-invalid animate__animated animate__headShake': password1.touched && password1.invalid}"
+                        class="form-control" id="floatingInput" type="password" name="inputPassword1" ngModel
+                        minlength="6" placeholder="Password" #password1="ngModel" required />
+                    <label for="floatingInput">Password</label>
+                </div>
+                <div class="mb-1 text-center" *ngIf="password1.touched && password1.invalid">
+                    <small *ngIf="password1.errors?.required" class="text-danger"> This field is required.</small>
+                    <small *ngIf="password1.touched && password1.errors?.minlength" class="text-danger"> Minimum 6
+                        characters
+                    </small>
+                </div>
+
+
+                <!-- <div class="form-floating mt-4">
+                    <input
+                        [ngClass]="{'is-invalid animate__animated animate__headShake': password2.touched && password2.invalid || !isPasswordMatch}"
+                        class="form-control" id="floatingInput" (keyup)="onMatchPassword(registerForm)" type="password"
+                        nxame="inputPassword2" ngModel minlength="6" placeholder="Password" #password2="ngModel"
+                        required />
+                    <label for="floatingInput">Password</label>
+                </div>
+                <div class="mb-1 text-center" *ngIf="password2.touched && password2.invalid">
+                    <small *ngIf="password2.errors?.required" class="text-danger"> This field is required.</small>
+                </div>
+                <div class="mb-1 text-center" *ngIf="!isPasswordMatch">
+                    <small class="text-center text-danger">Passwords must be identical</small>
+                </div>
+ -->
+
+
+                <div class="text-center mt-3">
+                    Already have an account? <span class="ml-1"> <a routerLink="/login">Login</a>
+                    </span>
+                </div>
+
+                <div class="text-center mt-3">
+                    <small class="mb-0">By signing up signifies that you have read and agreed to
+                        our
+                        <br>
+                        <span class="text-handy font-weight-bold">
+                            <a routerLink="/terms-condition" target="_blank" rel="noopener noreferrer">
+                                Terms and conditions</a></span> and <span class="text-handy font-weight-bold"><a
+                                routerLink="/privacy-policy" target="_blank" rel="noopener noreferrer"> Privacy
+                                policy</a></span>. <br>
+                        Dont forget <span class="text-handy font-weight-bold"><a routerLink="/faq" target="_blank"
+                                rel="noopener noreferrer">
+                                FAQs</a>
+                        </span>.
+                    </small>
+                </div>
+
+            </section>
+            <footer>
+                <button [disabled]="registerForm.invalid" type="submit"
+                    class="btn btn-lg text-uppercase border-radius btn-handy mt-2 w-75 ripple-effect">register</button>
+
+            </footer>
+        </form>
+
+    </div>
+</section>

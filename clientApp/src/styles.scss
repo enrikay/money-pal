@@ -1,0 +1,315 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css");
+// @import "./theme/fonts.scss";
+
+$handy-color: #4a6ee0;
+$handy-green: #12b886;
+
+html,
+body {
+    height: 100%;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    font-family: 'Lato', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, Nuni !important;
+    // font-family: Gilroy;
+    text-rendering: optimizeLegibility;
+    background-color: #eef3fb;
+}
+
+
+a {
+    color: $handy-color;
+    text-decoration: none;
+}
+
+// a:hover {
+//     text-decoration: none;
+// }
+
+
+.text-small {
+    font-size: 13px !important;
+}
+
+.text-mute {
+    color: #8189a9 !important;
+}
+
+.text-handy {
+    color: $handy-color !important;
+}
+
+.text-pink {
+    color: #C71585;
+    //    color: #cc459b;
+
+}
+
+.bg-handy {
+    background-color: $handy-color !important;
+}
+
+
+.btn,
+.btn:hover,
+.btn:active,
+.btn:active:focus,
+.btn:visited,
+.btn:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.btn-handy {
+    background-color: $handy-color !important;
+    color: lighten($color: $handy-color, $amount: 30%) !important;
+}
+
+
+.btn-handy:hover {
+    background-color: #224bd5 !important;
+}
+
+.btn-green {
+    background-color: #12b886 !important;
+    color: white !important;
+}
+
+.btn-green:hover {
+    background-color: #17ac7f !important;
+}
+
+.bg-green {
+    background-color: #12b886 !important;
+    border-color: #12b886 !important;
+}
+
+.border-radius {
+    border-radius: 10px;
+}
+
+.text-green {
+    color: #12b886 !important;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.handy-border {
+    border: solid #ffffff 1.5px;
+}
+
+.handy-radius {
+    border-radius: 15px !important;
+}
+
+.handy-border:hover {
+    /* transform: scale(1.05) translateY(-3px); */
+    transition: ease-in .3s;
+    border: solid #748ee0 1.5px;
+}
+
+.handy-card {
+    border-radius: 10px !important;
+    border: 2px solid rgb(213, 225, 241) !important;
+}
+
+
+.modal-content {
+    border-radius: 10px;
+}
+
+.action:hover {
+    background-color: #edf1fa !important;
+    color: $handy-color !important;
+    transition-duration: 400ms;
+}
+
+.delete:hover {
+    background-color: lighten(#ac1121, 58%);
+    color: #dc3545 !important;
+    transition-duration: 400ms;
+}
+
+
+.form-control,
+.form-control:hover,
+.form-control:active,
+.form-control:active:focus,
+.form-control:visited,
+.form-control:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-radius: 10px;
+}
+
+.form-select,
+.form-select:hover,
+.form-select:active,
+.form-select:active:focus,
+.form-select:visited,
+.form-select:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+    border-radius: 10px;
+}
+
+.custom-control,
+.custom-control:hover,
+.custom-control:active,
+.custom-control:active:focus,
+.custom-control:visited,
+.custom-control:focus {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+
+.ripple-effect {
+    position: relative;
+    overflow: hidden;
+    transform: translate3d(0, 0, 0);
+}
+
+.ripple-effect:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    background-image: radial-gradient(circle, #616a6aa8 10%, transparent 10.01%);
+    background-repeat: no-repeat;
+    background-position: 50%;
+    transform: scale(10, 10);
+    opacity: 0;
+    transition: transform .5s, opacity 1s;
+}
+
+.ripple-effect:active:after {
+    transform: scale(0, 0);
+    opacity: .3;
+    transition: 0s;
+}
+
+
+.breadcrumb-item+.breadcrumb-item::before {
+    content: "•";
+}
+
+
+/* General */
+.table {
+    font-size: 13.5px;
+}
+
+.handy-table-body {
+    font-weight: 600;
+    font-size: 13.5px;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 2px $handy-color;
+}
+
+::-webkit-scrollbar-thumb {
+    background: lighten($color: $handy-color, $amount: 13%);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: lighten($color: $handy-color, $amount: 17%);
+}
+
+
+.swal2-popup {
+    border-radius: 10px !important;
+
+    .swal2-actions {
+        justify-content: space-around;
+        padding: 0 !important;
+    }
+}
+
+
+
+/* media query section */
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 420px) {
+    .footer-clearfix {
+        padding-bottom: 80px !important;
+    }
+}
+
+@media only screen and (min-width: 420px) {
+    .footer-clearfix {
+        padding-bottom: 80px !important;
+    }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+
+@media only screen and (min-width: 600px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (min-width: 768px) {}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (min-width: 992px) {
+    .footer-clearfix {
+        padding-bottom: 0px !important;
+    }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (min-width: 1200px) {
+    // .footer-clearfix {
+    //     padding-bottom: 0px !important;
+    // }
+}
+
+/* media query section ends */
+
+
+
+
+/* media query section */
+
+/* Extra small devices (phones, 600px and down) */
+
+@media only screen and (max-width: 420px) {}
+
+/* Medium devices (landscape tablets, 768px and up) */
+
+@media only screen and (max-width: 768px) {
+    // .footer-clearfix {
+    //     padding-bottom: 70px !important;
+    // }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+
+@media only screen and (max-width: 992px) {}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+
+@media only screen and (max-width: 1200px) {}

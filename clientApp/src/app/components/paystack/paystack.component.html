@@ -1,0 +1,10 @@
+<angular4-paystack
+[paystackOptions]="options"
+[channels]="['bank']"
+[class]="'btn btn-sm btn-handy px-3 border-radius'"
+(paymentInit)="paymentInit()"
+(onClose)="paymentCancel()"
+(callback)="paymentDone($event)"
+>
+Pay with Paystack
+</angular4-paystack>

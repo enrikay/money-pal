@@ -1,0 +1,22 @@
+<div *ngIf="notifications.length > 0" id="toasts">
+    <div *ngFor="let notification of notifications" [ngClass]="notification.type"
+        class="toastt animate__animated animate__faster animate__jackInTheBox">
+        <h4 class="m-0 pe-3 animate__animated animate__infinite animate__pulse">
+            <i class="bi bi-{{ notification.icon }}"></i>
+        </h4>
+        <div class="h6 mb-0">{{ notification.message }}</div>
+        <div (click)="onRemoveNotification(notification.id)" class="h5 pointer mb-4 ms-4">
+            <i class="bi bi-x"></i>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="!isOnline" class="notification-top-bar animate__animated animate__faster animate__slideInDown py-3">
+    <div class="container">
+        <div class="d-flex justify-content-center align-items-center">
+            <h2 class="mb-0"> <i class="bi bi-wifi-off"></i></h2>
+            <p class="mb-0 px-3">Oooops! Could not connect to the internet, kindly check your network settings.</p>
+        </div>
+    </div>
+</div>
