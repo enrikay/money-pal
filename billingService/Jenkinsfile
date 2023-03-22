@@ -12,9 +12,10 @@ pipeline {
 
 		stage ('billingService') {
 			steps{
+				sh 'cd billingService'
 				sh 'npm install'
-                sh 'npm run build'
-                echo 'billing service success'
+                		sh 'npm run build'
+                		echo 'billing service success'
 			}
 		}
 		}
