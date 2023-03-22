@@ -1,0 +1,23 @@
+pipeline {
+	
+	agent any
+
+	tools {nodejs "node"}
+
+	stages{
+		stage ('checkout code') {
+			steps {
+				git credentialsId: 'github_access', url: 'https://github.com/enrikay/money-pal.git'
+			}
+
+		stage ('billingService') {
+			steps{
+				sh 'npm install'
+                sh 'npm run build'
+                echo 'billing service success'
+			}
+		}
+		}
+	}
+}
+
