@@ -6,11 +6,6 @@ on:
 
     paths:
       - '/**/**'
-  
-
-defaults:
-  run:
-    working-directory: service
 
 jobs:
   build:
