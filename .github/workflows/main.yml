@@ -1,20 +1,25 @@
-name: Monie-Pal-Deploy
-
+name: Monie-pal Deploy
 on:
-	push:
-		- master
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
 
 jobs:
-	Build-Job:
-		name: Node Setup
-		steps:
-			- uses: actions/checkout@v3
-			- name: Setup node
-			  uses: actions/setup-node@v3
-			  with:
-			  	node-version: 18
-			  	cache: 'npm'
-			  	cache-dependency-path: subdir/package-lock.json
+  build:
+    runs-on: ubuntu-latest
 
-			- run: npm ci
-			- run: npm test
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '14.x'
+        cache: 'npm'
+        cache-dependency-path: subdir/package-lock.json
+    - name: Install Dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
+    - name: Test
+      run: npm test
