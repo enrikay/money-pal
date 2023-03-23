@@ -21,6 +21,12 @@ jobs:
         node-version: '16.x'
         cache: 'npm'
         cache-dependency-path: billingService/package-lock.json
+
+    - name: change directory
+      run: 
+        pwd
+        mkdir billingService
+        cd billingService
     - name: Install Dependencies
       run: npm install
     - name: Build
