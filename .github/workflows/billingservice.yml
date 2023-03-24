@@ -25,6 +25,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./billingService/package-lock.json
     - name: Install Dependencies
-      run: npm install
+      run: npm ci
     - name: Test
-      run: npm test
+      run: npm run
