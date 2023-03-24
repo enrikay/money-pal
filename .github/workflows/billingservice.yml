@@ -6,8 +6,8 @@ on:
     branches: [ master ]
 
     paths:
-      - "money-pal/billingService/**"
       - ".github/workflows/billingservice.yml"
+      - "money-pal/billingService/**"
 
 jobs:
   build:
@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-
+        cache-dependency-path: ./billingService/package-lock.json
     - name: Install Dependencies
       run: npm install
     - name: Build
