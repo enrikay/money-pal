@@ -20,8 +20,10 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-        cache-dependency-path: "**/billingService/package-lock.json"
-
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+        cache-dependency-path: money-pal/billingService/package-lock.json
+    - name: Install Dependencies
+      run: npm install
+    - name: Build
+      run: npm run build --if present
+    - name: Test
+      run: npm test
