@@ -18,13 +18,10 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 16
-        
-
     - name: Install dependencies and build project
       working-directory: billingservice/
 
-        run:|
-
+    - run: |
           npm install
           npm run build
           npm run test
