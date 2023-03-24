@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
     paths:
-      - "money-pal/billingService/**"
+      - "money-pal/money-pal/billingService/**"
       - ".github/workflows/billingservice.yml"
 
 jobs:
