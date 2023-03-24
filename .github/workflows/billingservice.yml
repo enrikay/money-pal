@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-        cache-dependency-path: "${ GITHUB_WORKSPACE }/**/package-lock.json"
+        cache-dependency-path: "**/**/package-lock.json"
 
     - name: change directory
       run: |-
