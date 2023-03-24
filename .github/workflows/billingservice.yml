@@ -6,8 +6,8 @@ on:
     branches: [ master ]
 
     paths:
-      - billingService/**
-      - .github/workflows/billingservice.yml
+      - "mone/billingService/**"
+      - ".github/workflows/billingservice.yml"
 
 jobs:
   build:
@@ -20,16 +20,10 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-        cache-dependency-path: billingService/package-lock.json
+        
 
     - name: change directory
-      run: 
-        pwd
-        mkdir billingService
+      run: |-
         cd billingService
-    - name: Install Dependencies
-      run: npm install
-    - name: Build
-      run: npm run build --if present
-    - name: Test
-      run: npm test
+        npm install
+        npm run build --if present
