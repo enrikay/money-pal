@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-
+        cache-dependency-path: money-pal/money-pal/billingService/package-lock.json
 
     - name: change directory
       run: |-
