@@ -6,7 +6,7 @@ on:
     branches: [ master ]
 
     paths:
-      - "mone/billingService/**"
+      - "money-pal/billingService/**"
       - ".github/workflows/billingservice.yml"
 
 jobs:
@@ -20,7 +20,7 @@ jobs:
       with:
         node-version: '16.x'
         cache: 'npm'
-        
+        cache-dependency-path: money-pal/billingService/package-lock.json
 
     - name: change directory
       run: |-
