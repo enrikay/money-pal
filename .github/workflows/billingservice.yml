@@ -2,6 +2,11 @@ name: billingService Deploy
 on:
   push:
     branches: [ master ]
+    paths:
+      - ".github/workflows/billingservice.yml"
+      - "money-pal/billingService/**"
+
+    
   pull_request:
     branches: [ master ]
 
