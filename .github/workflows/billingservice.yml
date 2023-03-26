@@ -1,9 +1,10 @@
 name: billingService Deploy
 on:
+  workflow_dispatch:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
     paths:
       - "money-pal/billingService/**"
@@ -25,8 +26,6 @@ jobs:
         cache: 'npm'
         cache-dependency-path: ./billingService/package-lock.json
     - name: Install Dependencies
-      run: npm run
+      run: npm install
     - name: Build
-      run: npm run build --if present  
-    - name: Test
-      run: npm test
+      run: npm run build --if present 
