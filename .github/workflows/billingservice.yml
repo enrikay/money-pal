@@ -36,12 +36,13 @@ jobs:
       run: |
         npm install
         npm ci
-        
+
 # build and test the apps 
-#   - name: Build
-#      run: |
-#        npm run build
+    - name: Build
+      run: |
+        npm run Build
 #        npm test
+        
                 
   push_to_registry:
 # build docker image and push to docker hub
