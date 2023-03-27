@@ -15,12 +15,13 @@ on:
 
 # We declare multiple jos that runs sequentially.
 jobs:
-  build:
+  build_test:
     runs-on: ubuntu-latest
     defaults:
       run: 
         working-directory: ./billingService
-
+    
+    
     steps:
 # Checks-out ther repository under $GITHUB_WORKSPACE, so this job can access it
     - uses: actions/checkout@v3
@@ -50,7 +51,8 @@ jobs:
       name: Push Docker image to Docker Hub
       runs-on: ubuntu-latest
       
-# only if the app build and test successfully
+      needs: [build_test]
+# only if the app build and test [Job: build_test] pass successfully
       steps:
         - name: Check out the repo
           uses: actions/checkout@v3
