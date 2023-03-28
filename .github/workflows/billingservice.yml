@@ -107,9 +107,9 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: billing
           IMAGE_TAG: latest
-          dockerfile: ./billingService/Dockerfile
+        
 
         run: | 
-          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
+          docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG ./billingService/ .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
 
