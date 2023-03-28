@@ -95,7 +95,7 @@ jobs:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-2
-          dockerfile: ./billingService/Dockerfile
+          
 
       - name: Login to Amazon ECR
         id: login-ecr
@@ -107,8 +107,8 @@ jobs:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
           ECR_REPOSITORY: billing
           IMAGE_TAG: latest
-          working-directory: './billingService'
-          FILE: ./billingService/Dockerfile
+          dockerfile: ./billingService/Dockerfile
+
         run: | 
           docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
           docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
