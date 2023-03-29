@@ -2,7 +2,7 @@ FROM node:14
 LABEL author="Okonkwo Emmanuel"
 
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=3002
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
