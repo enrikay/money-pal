@@ -77,7 +77,7 @@ jobs:
             context: ./walletService/
             file: ./walletService/Dockerfile
             push: true
-            tags: enricay/email:latest
+            tags: enricay/wallet:latest
             
         
         
