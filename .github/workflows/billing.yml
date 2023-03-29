@@ -6,9 +6,9 @@ on:
   workflow_dispatch:
 # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
     
 # Triggers the workflow on push or pull request events but only for when there's changes in this path.
     paths:
@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run: 
-        working-directory: ./billingService/
+        working-directory: ./billingService
     
     
     steps:
