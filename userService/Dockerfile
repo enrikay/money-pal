@@ -2,7 +2,7 @@ FROM node:14
 LABEL author="Cornelius Okeke"
 
 ENV NODE_ENV=production
-ENV PORT=3001
+ENV PORT=3004
 
 RUN mkdir -p /usr/src/app
 WORKDIR /usr/src/app
