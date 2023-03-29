@@ -1,4 +1,4 @@
-name: emailService Deploy
+name: paymentService Deploy
 
 # Controls when the action will run. 
 on:
@@ -12,8 +12,8 @@ on:
     
 # Triggers the workflow on push or pull request events but only for when there's changes in this path.
     paths:
-      - "money-pal/emailService/**"
-      - ".github/workflows/emailservice.yml"
+      - "money-pal/paymentService/**"
+      - ".github/workflows/payment.yml"
 
 # We declare multiple jos that runs sequentially.
 jobs:
@@ -108,7 +108,7 @@ jobs:
 
         env:
           ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          ECR_REPOSITORY: email
+          ECR_REPOSITORY: payment
           IMAGE_TAG: latest
         
 
