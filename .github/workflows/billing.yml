@@ -21,7 +21,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run: 
-        working-directory: ./billingService
+        working-directory: ./billingService/
     
     
     steps:
