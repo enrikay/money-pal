@@ -11,8 +11,12 @@ on:
     branches: [ ma ]
 
 jobs:
-  deploy:
+  deploy-clientApp-to-s3:
     runs-on: ubuntu-latest
+    defaults:
+      run: 
+        working-directory: ./clientApp/
+    
     steps:
     - name: Configure AWS Credentials
       uses: aws-actions/configure-aws-credentials@v1
