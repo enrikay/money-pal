@@ -1,17 +1,13 @@
 name: MoneyPal CD
-
-
-name: billingService Deploy
-
 # Controls when the action will run. 
 on:
 # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 # Triggers the workflow on push or pull request events but only for the main branch
   push:
-    branches: [ main ]
+    branches: [ master ]
   pull_request:
-    branches: [ main ]
+    branches: [ master ]
     
 # Triggers the workflow on push or pull request events but only for when there's changes in this path.
     paths:
