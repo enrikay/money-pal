@@ -1,0 +1,87 @@
+#Ingress rules
+
+
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: moneypal-ingress-service
+  namespace: default
+  annotations:
+#ingress class object
+     kubernetes.io/ingress.class: nginx 
+#    cert-manager.io/cluster-issuer: letsencrypt
+
+spec:
+  rules:
+    # billing
+    - host: billing.moneypal.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: billing-api-service
+                port: 
+                  number: 3001
+            path: /billing
+            pathType: Prefix
+
+    #email
+    - host: email.moneypal.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: email-api-service
+                port: 
+                  number: 3002
+            path: /email
+            pathType: Prefix
+
+      #payment
+    - host: payment.moneypal.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: payment-api-service
+                port: 
+                  number: 3003
+            path: /payment
+            pathType: Prefix
+
+      #user
+    - host: user.moneypal.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: user-api-service
+                port: 
+                  number: 3004
+            path: /user
+            pathType: Prefix
+
+
+      #wallet
+    - host: wallet.moneypal.com
+      http:
+        paths:
+          - backend:
+              service:
+                name: wallet-api-service
+                port: 
+                  number: 3005
+            path: /wallet
+            pathType: Prefix
+
+#  tls:
+ #   - secretName: smoneypal-cert
+  #  hosts:
+   #   - client.moneypal.com
+    #  - billing.moneypal.com
+     # - email.moneypal.com
+      #- payment.moneypal.com
+      #- user.moneypal.com
+      #- wallet.moneypal.com
+
+
