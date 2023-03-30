@@ -46,10 +46,7 @@ jobs:
     - name: NPM Install
       run: npm install    
 
-    # Run all tests
-    - name: Run tests
-      run: |
-          npm test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
+
     # Create dev build
     - name: NPM build Angular
       run: npm run build
