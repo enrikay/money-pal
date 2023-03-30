@@ -1,4 +1,4 @@
-name: clientService Deploy
+name: clientApp Deploy
 
 # Controls when the action will run. 
 on:
@@ -17,7 +17,7 @@ on:
 
 # We declare multiple jos that runs sequentially.
 jobs:
-  deploy-to-s3:
+  deploy-clientApp-to-s3:
     runs-on: ubuntu-latest
     defaults:
       run: 
@@ -56,4 +56,4 @@ jobs:
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
         AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
         AWS_REGION: ${{ secrets.AWS_REGION }}
-        SOURCE_DIR: 'dist/clientApp'
+        SOURCE_DIR: './dist/clientApp'
