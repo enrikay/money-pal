@@ -41,7 +41,7 @@ jobs:
         
 # build and test the apps 
     - name: NPM build Angular
-      run: npm run build:prod
+      run: npm run build
     
                 
 # Deploy to S3
