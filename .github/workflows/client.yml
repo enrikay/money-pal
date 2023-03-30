@@ -31,13 +31,14 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '16.x'
-        cache: 'npm'
-        cache-dependency-path: ./clientService/package-lock.json
+#        cache: 'npm'
+#        cache-dependency-path: ./clientService/package-lock.json
         
 # install applicaion dependencies
     - name: Install Dependencies
       run: |
         npm install
+        
 # build and test the apps 
 #   - name: NPM build Angular
 #     run: npm run build
