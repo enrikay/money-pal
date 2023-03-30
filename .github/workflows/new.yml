@@ -47,9 +47,6 @@ jobs:
       run: npm install    
 
 
-    # Create dev build
-    - name: NPM build Angular
-      run: npm run build
 
     # Create production build
     #- name: Production Build
