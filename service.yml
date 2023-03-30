@@ -1,0 +1,108 @@
+
+# billingService service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-api-service
+spec:
+  ports:
+  - port: 3001
+    targetPort: email-port
+    protocol: TCP
+  selector:
+    app: email
+  type: ClusterIP
+
+
+# emailService service file
+
+  apiVersion: v1
+kind: Service
+metadata:
+  name: email-api-service
+spec:
+  ports:
+  - port: 3002
+    targetPort: email-port
+    protocol: TCP
+  selector:
+    app: email
+  type: ClusterIP
+
+# paymentService service file
+
+  apiVersion: v1
+kind: Service
+metadata:
+  name: payment-api-service
+spec:
+  ports:
+  - port: 3003
+    targetPort: payment-port
+    protocol: TCP
+  selector:
+    app: payment
+  type: ClusterIP
+
+
+#User Service service file
+
+  apiVersion: v1
+kind: Service
+metadata:
+  name: user-api-service
+spec:
+  ports:
+  - port: 3004
+    targetPort: user-port
+    protocol: TCP
+  selector:
+    app: user
+  type: ClusterIP
+
+# walletService service file
+
+  apiVersion: v1
+kind: Service
+metadata:
+  name: wallet-api-service
+spec:
+  ports:
+  - port: 3005
+    targetPort: wallet-port
+    protocol: TCP
+  selector:
+    app: wallet
+  type: ClusterIP
+
+
+#Rabbit MQ  service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq-Money
+spec:
+  ports:
+  - port: 5672
+    targetPort: rabbitmq-Money-port
+    protocol: TCP
+  selector:
+    app: vpromq01
+  type: ClusterIP
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
