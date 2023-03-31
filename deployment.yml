@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: billing-api
-        image: 095420225348.dkr.ecr.eu-west-1.amazonaws.com/billing:latest
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/billing:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3001
@@ -42,7 +42,7 @@ spec:
     spec:
       containers:
       - name: email-api
-        image: 095420225348.dkr.ecr.eu-west-1.amazonaws.com/email:latest
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/email:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3002
@@ -68,7 +68,7 @@ spec:
     spec:
       containers:
       - name: payment-api
-        image: 095420225348.dkr.ecr.eu-west-1.amazonaws.com/payment:latest
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/payment:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3003
@@ -94,7 +94,7 @@ spec:
     spec:
       containers:
       - name: user-api
-        image: 095420225348.dkr.ecr.eu-west-1.amazonaws.com/user:latest
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/user:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3004
@@ -120,7 +120,7 @@ spec:
     spec:
       containers:
       - name: wallet-api
-        image: 095420225348.dkr.ecr.eu-west-1.amazonaws.com/wallet:latest
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/wallet:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3005
