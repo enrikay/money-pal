@@ -1,4 +1,4 @@
-name: MoneyPal CD
+name: MoneyPal App Deploy
 # Controls when the action will run. 
 on:
 # Allows you to run this workflow manually from the Actions tab
@@ -12,11 +12,6 @@ on:
 # Triggers the workflow on push or pull request events but only for when there's changes in this path.
     paths:
       - "money-pal/**"
-      - ".github/workflows/**"
-on:
-  push:
-    branches:
-      - 'main'
 
 jobs:
   deploy:
