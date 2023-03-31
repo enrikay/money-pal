@@ -1,37 +1,36 @@
-
-
-# Rabit MQ
-
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-svc
+  labels:
+    app: nginx
+spec:
+  type: LoadBalancer
+  ports:
+  - port: 80
+  selector:
+    app: nginx
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: rmq-Money
+  name: my-nginx
   labels:
-    app: rmq-Money
+    app: nginx
 spec:
+  replicas: 4
   selector:
     matchLabels:
-      app: rmq-Money
-  replicas: 1
+      app: nginx
   template:
     metadata:
       labels:
-        app: rmq-Money
+        app: nginx
     spec:
       containers:
-      - name: rmq-Money
-        image: rabbitmq
+      - name: nginx
+        image: nginx:1.14.2
         ports:
-        - name: rmq-Money-port
-          containerPort: 15672
-          imagePullPolicy: Always
-        env: 
-         - name: RABBITMQ_DEFAULT_PASS
-           valueFrom:
-             secretKeyRef:
-               name: app-secret
-               key: rmq-pass
-         - name: RABBITMQ_DEFAULT_USER
-           value: "guest"
+        - containerPort: 80
 
 
