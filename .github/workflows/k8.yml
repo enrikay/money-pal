@@ -40,7 +40,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --name kubernetes.osundarekayode.click --region us-east-2
+      run: aws eks update-kubeconfig --region us-east-2 --name kubernetes.osundarekayode.click
 
     - name: Deploy to EKS
       run: |
