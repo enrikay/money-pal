@@ -1,36 +1,98 @@
-apiVersion: v1
-kind: Service
-metadata:
-  name: my-nginx-svc
-  labels:
-    app: nginx
-spec:
-  type: LoadBalancer
-  ports:
-  - port: 80
-  selector:
-    app: nginx
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-nginx
+  name: billing
   labels:
-    app: nginx
+    app: billing
 spec:
-  replicas: 4
+  replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: billing
   template:
     metadata:
       labels:
-        app: nginx
+        app: billing
     spec:
       containers:
-      - name: nginx
-        image: nginx:1.14.2
+      - name: billing
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/billing:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
-
-
+        - containerPort: 3001
+        
+        
+   apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email
+  labels:
+    app: email
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: email
+  template:
+    metadata:
+      labels:
+        app: email
+    spec:
+      containers:
+      - name: billing
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/email:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3001
+        
+  
+  apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: billing
+  labels:
+    app: billing
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: billing
+  template:
+    metadata:
+      labels:
+        app: billing
+    spec:
+      containers:
+      - name: billing
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/billing:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3001
+        
+        
+       
+ apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment
+  labels:
+    app: payment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: payment
+  template:
+    metadata:
+      labels:
+        app: payment
+    spec:
+      containers:
+      - name: billing
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/payment:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3001 
+        
+        
+        
