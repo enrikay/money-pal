@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap 
 metadata: 
   name: aws-auth 
-  namespace: moneypal-eks-cluster
+  namespace: default
 data: 
   mapUsers: | 
     - userarn: arn:aws:iam::178933473620:user/ECR_user
