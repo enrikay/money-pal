@@ -9,6 +9,8 @@ data:
       username: ECR_user
       groups:
         - system:masters
-        
-        
+     - userarn: arn:aws:iam::178933473620:root
+      username: ECR_user
+      groups:
+        - system:masters       
         
