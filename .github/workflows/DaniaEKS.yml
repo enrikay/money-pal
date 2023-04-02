@@ -1,22 +1,25 @@
-on: [push]
 
-name: DeployToEks
+name: CI
+
+on:
+  - push
 
 jobs:
-
-  build-and-deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-    
-    - uses: DaniaErnest/composite-Action@v3
-      CLUSTER_NAME: kubernetes.osundarekayode.click
-           RELEASE_TAG: v2
-           REGION:  us-east-2
-           ENVIRONMENT: Eks_cluster
-           AWS_ACCESS_KEY_ID: '${{ secrets.AWS_ACCESS_KEY_ID}}'
-           AWS_SECRET_ACCESS_KEY: '${{ secrets.AWS_SECRET_ACCESS_KEY }}'
-           
-    - name: Deploy to EKS
-      
-      run: |
-        kubectl apply -f deployment.yml
+      - uses: actions/checkout@v2
+
+      - name: izi-community AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Trigger deploy
+        uses: izi-community/kubernetes-action@master
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        with:
+          args: apply deployment.yaml
