@@ -1,67 +1,36 @@
-# To deploy: kubectl create -f nginx-hello-world-deployment.yaml
-# Access it with the API as a proxy:
-# $ kubectl proxy
-# Then in you browser: http://localhost:8001/api/v1/namespaces/default/services/nginx:/proxy/#!/
 
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx
+  name: billing
 spec:
-  type: NodePort
   ports:
-  - port: 80
-    targetPort: 80
-    nodePort: 30001
+  - port: 3001
+    targetPort: billing-port
+    protocol: TCP
   selector:
-    app: nginx
----
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: nginx-config
-data:
-  nginx.conf: '
-events {
-}
-http {
-   server {
-       listen 80;
-       location / {
-           return 200 "Hello world!";
-       }
-   }
-}
-'
+    app: billing
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: billing
 spec:
   selector:
     matchLabels:
-      app: nginx
+      app: billing
   strategy:
     type: Recreate
   template:
     metadata:
       labels:
-        app: nginx
+        app: billing
     spec:
       containers:
-      - image: nginx:latest
-        name: nginx
+      - name: billing
+        image: 178933473620.dkr.ecr.us-east-2.amazonaws.com/billing:latest
+        imagePullPolicy: Always
         ports:
-        - containerPort: 80
-          name: web
-        volumeMounts:
-          - name: config-vol
-            mountPath: /etc/nginx/
-      volumes:
-        - name: config-vol
-          configMap:
-            name: nginx-config
-            items:
-              - key: nginx.conf
-                path: nginx.conf
+        - containerPort: 3001
+       
