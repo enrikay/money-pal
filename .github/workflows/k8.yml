@@ -40,7 +40,7 @@ jobs:
         aws-region: us-east-1
 
     - name: Update kube config
-      run: aws eks update-kubeconfig --region us-east-2 --name test-cluster
+      run: aws eks update-kubeconfig --region us-east-2 --name moneypal-eks-cluster
     - name: Deploy to EKS
       run: |
         kubectl apply -f eks/aws-auth.yml
