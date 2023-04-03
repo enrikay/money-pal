@@ -9,8 +9,8 @@ data:
       username: ECR_user
       groups:
         - system:masters
-     - userarn: arn:aws:iam::178933473620:root
-      username: ECR_user
+     - userarn: arn:aws:iam::178933473620:role/test-cluster-role
+      username: test-cluster-role
       groups:
         - system:masters       
         
