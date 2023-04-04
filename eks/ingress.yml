@@ -16,7 +16,7 @@ spec:
         paths:
           - backend:
               service:
-                name: billing-api-service
+                name: billing-service
                 port: 
                   number: 3001
             path: /billing
@@ -28,7 +28,7 @@ spec:
         paths:
           - backend:
               service:
-                name: email-api-service
+                name: email-service
                 port: 
                   number: 3002
             path: /email
@@ -40,7 +40,7 @@ spec:
         paths:
           - backend:
               service:
-                name: payment-api-service
+                name: payment-service
                 port: 
                   number: 3003
             path: /payment
@@ -52,7 +52,7 @@ spec:
         paths:
           - backend:
               service:
-                name: user-api-service
+                name: user-service
                 port: 
                   number: 3004
             path: /user
@@ -65,14 +65,14 @@ spec:
         paths:
           - backend:
               service:
-                name: wallet-api-service
+                name: wallet-service
                 port: 
                   number: 3005
             path: /wallet
             pathType: Prefix
 
 #  tls:
- #   - secretName: smoneypal-cert
+ #   - secretName: moneypal-cert
   #  hosts:
    #   - client.moneypal.com
     #  - billing.moneypal.com
