@@ -29,3 +29,66 @@ spec:
     app: email
   type: ClusterIP
 
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: payment-service
+spec:
+  ports:
+  - port: 3003
+    targetPort: payment-port
+    protocol: TCP
+  selector:
+    app: payment
+  type: NodePort
+
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: user-service
+spec:
+  ports:
+  - port: 3004
+    targetPort: user-port
+    protocol: TCP
+  selector:
+    app: user
+  type: NodePort
+
+ 
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: wallet-service
+spec:
+  ports:
+  - port: 3005
+    targetPort: wallet-port
+    protocol: TCP
+  selector:
+    app: wallet
+  type: NodePort
+
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: rabbitmq
+spec:
+  ports:
+  - port: 5672
+    targetPort: rabbitmq-port
+    protocol: TCP
+  selector:
+    app: rabbitmq
+  type: NodePort
