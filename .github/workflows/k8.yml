@@ -45,5 +45,5 @@ jobs:
       run: |
         kubectl apply -f eks/aws-auth.yml
         kubectl apply -f eks/deployment.yml
-#      kubectl apply -f service.yml
-#       kubectl apply -f ingress.yml
+        kubectl apply -f eks/service.yml
+        kubectl apply -f eks/ingress.yml
