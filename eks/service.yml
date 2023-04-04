@@ -1,7 +1,9 @@
+# email Service service file
+
 apiVersion: v1
 kind: Service
 metadata:
-  name: billing
+  name: billing-service
 spec:
   ports:
   - port: 3001
@@ -9,4 +11,83 @@ spec:
     protocol: TCP
   selector:
     app: billing
+  type: NodePort
+  
+
+# email Service service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: email-service
+spec:
+  ports:
+  - port: 3002
+    targetPort: email-port
+    protocol: TCP
+  selector:
+    app: email
   type: ClusterIP
+
+
+# paymentService service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: payment-service
+spec:
+  ports:
+  - port: 3003
+    targetPort: payment-port
+    protocol: TCP
+  selector:
+    app: payment
+  type: NodePort
+
+
+#User Service service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: user-service
+spec:
+  ports:
+  - port: 3004
+    targetPort: user-port
+    protocol: TCP
+  selector:
+    app: user
+  type: NodePort
+
+# walletService service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: wallet-service
+spec:
+  ports:
+  - port: 3005
+    targetPort: wallet-port
+    protocol: TCP
+  selector:
+    app: wallet
+  type: NodePort
+
+
+#Rabbit MQ  service file
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: rabbitmq
+spec:
+  ports:
+  - port: 5672
+    targetPort: rabbitmq-port
+    protocol: TCP
+  selector:
+    app: rabbitmq
+  type: NodePort
