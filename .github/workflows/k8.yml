@@ -47,3 +47,5 @@ jobs:
         kubectl apply -f eks/deployment.yml
         kubectl apply -f eks/service.yml
         kubectl apply -f eks/ingress.yml
+        kubectl apply -f eks/app-secret.yml
+        
